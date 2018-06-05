@@ -8,7 +8,7 @@ from .models import Hospital
 
 class IndexView(generic.ListView):
     template_name = 'hospital/index.html'
-    context_object_name = 'hospitals_list'
+    context_object_name = 'hospital_list'
 
     def get_queryset(self):
         ''' 按医院等级进行排序 '''

@@ -13,8 +13,8 @@ class Users(AbstractUser):
                               unique=True, error_messages={'unique': '该电子邮箱已被占用'})
     gender = models.CharField(max_length=6, choices=(('male', '男'), ('female', '女')), default='', verbose_name='性别')
     mobile = models.CharField(max_length=100, default='', null=True, blank=True, verbose_name='手机号码')
-    image = models.ImageField(upload_to='upload/image/%Y/%m', null=True, blank=True,
-                              default='upload/image/default.png', verbose_name='用户头像')
+    image = models.ImageField(upload_to='upload/images/users/%Y/%m', null=True, blank=True,
+                              default='upload/image/users/default.jpg', verbose_name='用户头像')
 
     def __str__(self):
         return self.username

@@ -40,16 +40,29 @@ class District(models.Model):
         verbose_name_plural = verbose_name
 
 
+class HospitalManager(models.Manager):
+    def get_queryset_order_by_level(self):
+        ''' 按医院等级进行排序 '''
+        return Hospital.object.order_by('-level')[:30]
+
+    def get_queryset_by_id(self, id):
+        return Hospital.object.filter(id=id)
+
+    def get_queryset_by_name(self, hospital_name):
+        return Hospital.object.filter(name=hospital_name)
+
+
 class Hospital(models.Model):
     hospital_level = ((0, '三级甲(特)医院'), (1, '三级医院'), (2, '二级医院'), (3, '一级医院'))
 
+    object = HospitalManager()
     name = models.CharField(max_length=20, verbose_name='医院名称')
     desc = models.CharField(max_length=200, verbose_name='医院描述')
     district = models.ForeignKey(District, on_delete=models.CASCADE, verbose_name='所属行政区域')
     click_nums = models.IntegerField(verbose_name='点击数', default=0)
     fav_nums = models.IntegerField(verbose_name='收藏数', default=0)
     points = models.CharField(max_length=300, verbose_name='擅长领域', null=True, blank=True)
-    image = models.ImageField(upload_to='upload/hospital/%Y/%m', verbose_name='医院图片', null=True, blank=True)
+    image = models.ImageField(upload_to='upload/images/hospital/%Y/%m', verbose_name='医院图片', null=True, blank=True)
     level = models.SmallIntegerField(default=0, verbose_name='医院等级', choices=hospital_level)
 
     def __str__(self):
