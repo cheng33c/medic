@@ -1,0 +1,17 @@
+{% autoescape off %}
+
+<h1>{{ hospitals.name }}</h1>
+
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+
+    医院名: {{ hospitals.name }}<br>
+    擅长领域: {{ hospitals.points }}<br>
+    医院等级: {{ hospitals.level }}<br>
+    所属地区: {{ hospitals.district.city.province.name }} {{ hospitals.district.city.name }} {{ hospitals.district.name }}<br>
+    医院图片: <img src="{{ hospitals.image }}">
+    医院介绍: {{ hospitals.desc }}<br>
+
+
+{% endautoescape %}

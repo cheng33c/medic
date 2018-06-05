@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/style.css' %}">
+
+{% if latest_news_list %}
+<ul>
+    {% for news in latest_news_list %}
+        <li><a href="{% url 'news:detail' news.id %}">{{ news.title }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No article</p>
+{% endif %}
