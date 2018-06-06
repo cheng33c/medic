@@ -13,21 +13,6 @@ class GlobalSetting(object):
     site_footer = 'Medic'
     menu_style = 'accordion'
 
-
-class UsersAdmin(object):
-    fieldsets = [
-        ('用户信息', {'fields': ['username', 'password', 'email'], 'classes': ['collapse']}),
-        ('其他信息', {'fields': ['gender', 'mobile', 'image', 'is_active'], 'classes': ['collapse']})
-    ]
-    list_display = ['username', 'gender', 'email']
-    search_fields = ['username', 'gender', 'email']
-    list_filter = ['username', 'gender', 'email']
-
-    class Meta:
-        verbose_name = '用户管理'
-        verbose_name_plural = verbose_name
-
-
 class DoctorsAdmin(object):
     list_display = ['user', 'hospital', 'work_years', 'title', 'points', 'click_nums', 'fav_nums', 'add_time']
     search_fields = ['user', 'hospital', 'work_years', 'title', 'points', 'click_nums', 'fav_nums']
@@ -41,5 +26,4 @@ class DoctorsAdmin(object):
 xadmin.site.register(views.BaseAdminView, BaseSetting)
 xadmin.site.register(views.CommAdminView, GlobalSetting)
 xadmin.site.register(Doctors, DoctorsAdmin)
-xadmin.site.unregister(Users)
-xadmin.site.register(Users, UsersAdmin)
+
