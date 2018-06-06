@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'news.apps.NewsConfig',
     'hospital.apps.HospitalConfig',
+    'medical_record.apps.MedicalRecordConfig',
     'ckeditor',
     'ckeditor_uploader',
     'xadmin.apps.XAdminConfig',

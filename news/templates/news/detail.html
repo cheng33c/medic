@@ -1,11 +1,19 @@
-{% autoescape off %}
+{% extends 'index.html' %}
 
-<h1>{{ news.title }}</h1>
+{% block title %}{{ news.title }}{% endblock %}
 
-{% if error_message %}
-<p><strong>{{ error_message }}</strong></p>
-{% endif %}
+{% block content %}
 
-{{ news.content }}
+    {% autoescape off %}
 
-{% endautoescape %}
+        <h1>{{ news.title }}</h1>
+
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+
+        {{ news.content }}
+
+    {% endautoescape %}
+
+{% endblock %}

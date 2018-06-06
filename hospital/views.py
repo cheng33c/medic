@@ -12,7 +12,7 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         ''' 按医院等级进行排序 '''
-        return Hospital.objects.order_by('-level')[:30]
+        return Hospital.object.order_by('-level')[:30]
 
 
 class DetailView(generic.DetailView):

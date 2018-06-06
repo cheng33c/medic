@@ -1,16 +1,24 @@
-{% autoescape off %}
+{% extends 'index.html' %}
 
-<h1>{{ hospital.name }}</h1>
+{% block title %}{{ hospital.name }}{% endblock %}
 
-{% if error_message %}
-<p><strong>{{ error_message }}</strong></p>
-{% endif %}
+{% block content %}
 
-    医院名: {{ hospital.name }}<br>
-    擅长领域: {{ hospital.points }}<br>
-    医院等级: {{ hospital.level }}<br>
-    所属地区: {{ hospital.district.city.province.name }} {{ hospital.district.city.name }} {{ hospital.district.name }}<br>
-    医院介绍: {{ hospital.desc }}<br>
+    {% autoescape off %}
+
+        <h1>{{ hospital.name }}</h1>
+
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+
+        医院名: {{ hospital.name }}<br>
+        擅长领域: {{ hospital.points }}<br>
+        医院等级: {{ hospital.level }}<br>
+        所属地区: {{ hospital.district.city.province.name }} {{ hospital.district.city.name }} {{ hospital.district.name }}<br>
+        医院介绍: {{ hospital.desc }}<br>
 
 
-{% endautoescape %}
+    {% endautoescape %}
+
+{% endblock %}

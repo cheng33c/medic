@@ -1,19 +1,26 @@
-{% autoescape off %}
+{% extends 'index.html' %}
+{% block title %}{{ doctors.user.username }}{% endblock %}
 
-<h1>{{ doctors.user.username }}</h1>
+{% block content %}
 
-{% if error_message %}
-<p><strong>{{ error_message }}</strong></p>
-{% endif %}
+    {% autoescape off %}
 
-    用户名: {{ doctors.user.username }}<br>
-    真实姓名: {{ doctors.real_name }}<br>
-    擅长领域: {{ doctors.points }}<br>
-    工作时间: {{ doctors.work_years }}<br>
-    工作医院: {{ doctors.hospital }}<br>
-    医生描述: {{ doctors.desc }}<br>
-    医生热度: {{ doctors.click_nums }}<br>
-    医生收藏数: {{ doctors.fav_nums }}<br>
+        <h1>{{ doctors.user.username }}</h1>
+
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+
+        用户名: {{ doctors.user.username }}<br>
+        真实姓名: {{ doctors.real_name }}<br>
+        擅长领域: {{ doctors.points }}<br>
+        工作时间: {{ doctors.work_years }}<br>
+        工作医院: {{ doctors.hospital }}<br>
+        医生描述: {{ doctors.desc }}<br>
+        医生热度: {{ doctors.click_nums }}<br>
+        医生收藏数: {{ doctors.fav_nums }}<br>
 
 
-{% endautoescape %}
+    {% endautoescape %}
+
+{% endblock %}

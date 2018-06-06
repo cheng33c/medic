@@ -19,9 +19,22 @@ class Users(AbstractUser):
     def __str__(self):
         return self.username
 
+    def is_doctor(self):
+        return Doctors.objects.filter(user__id=id)
+
     class Meta(AbstractUser.Meta):
         verbose_name = '用户信息'
         verbose_name_plural = verbose_name
+
+
+class DoctorsManager(models.Manager):
+
+    def query_by_hospital_name(self, hospital_name):
+
+        pass
+
+    def query_by_userid(self, userid):
+        return Doctors.objects.filter(user__id=userid)
 
 
 class Doctors(models.Model):
@@ -29,9 +42,11 @@ class Doctors(models.Model):
     '''
     Todo-list: 加上预约功能, 医生候诊时间
     '''
+    objects = DoctorsManager()
     user = models.ForeignKey(Users, on_delete=models.CASCADE, verbose_name='用户')
     real_name = models.CharField(max_length=20, verbose_name='真实姓名', default='')
     hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, verbose_name='所属医院')
+    id_num = models.CharField(max_length=18, verbose_name='身份证号', default='')
     desc = models.TextField(verbose_name='医生描述')
     work_years = models.IntegerField(default=0, verbose_name='工作年限')
     title = models.SmallIntegerField(default=0, verbose_name='医生职称', choices=(

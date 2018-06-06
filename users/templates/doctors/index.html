@@ -1,15 +1,19 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'news/style.css' %}">
+{% extends 'index.html' %}
+{% block title %}医生{% endblock %}
 
-{% if doctors_list %}
-<ul>
-    {% for doctor in doctors_list %}
-        <li>
-            <a href="{% url 'users:doctors_detail' doctor.id %}">{{ doctor.user.username }}</a>
-            {{ doctor.points }} {{ doctor.get_title_display }}
-        </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No doctors</p>
-{% endif %}
+{% block content %}
+
+    {% if doctors_list %}
+        <ul>
+            {% for doctor in doctors_list %}
+                <li>
+                    <a href="{% url 'users:doctors_detail' doctor.id %}">{{ doctor.user.username }}</a>
+                    {{ doctor.points }} {{ doctor.get_title_display }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No doctors</p>
+    {% endif %}
+
+{% endblock %}

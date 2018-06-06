@@ -41,14 +41,14 @@ class District(models.Model):
 
 
 class HospitalManager(models.Manager):
-    def get_queryset_order_by_level(self):
+    def query_by_level(self):
         ''' 按医院等级进行排序 '''
-        return Hospital.object.order_by('-level')[:30]
+        return Hospital.object.order_by('-level')
 
-    def get_queryset_by_id(self, id):
+    def query_by_id(self, id):
         return Hospital.object.filter(id=id)
 
-    def get_queryset_by_name(self, hospital_name):
+    def query_by_name(self, hospital_name):
         return Hospital.object.filter(name=hospital_name)
 
 

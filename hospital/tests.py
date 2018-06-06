@@ -13,16 +13,16 @@ class HospitalManagerModelTests(TestCase):
     manager = HospitalManager()
     create_hospital('abc123')
 
-    def test_get_queryset_order_by_level(self):
-        res = self.manager.get_queryset_order_by_level()
+    def test_query_by_level(self):
+        res = self.manager.query_by_level()
         print(res)
         self.assertIs(res is not None, True)
 
-    def test_get_queryset_by_id(self):
-        res = self.manager.get_queryset_by_id(0)
+    def test_query_by_id(self):
+        res = self.manager.query_by_id(0)
         self.assertIs(res is not None, True)
 
-    def test_get_queryset_by_name(self):
+    def test_query_by_name(self):
         # 无法通过测试
         # res = self.manager.get_queryset_by_name('abc123')
         # self.assertIs(res.values()[0]['name'] == 'abc123', True)

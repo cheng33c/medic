@@ -1,6 +1,8 @@
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'news/style.css' %}">
+{% extends 'base.html' %}
 
+{% block title %}新闻{% endblock %}
+
+{% block content %}
 {% if latest_news_list %}
 <ul>
     {% for news in latest_news_list %}
@@ -10,3 +12,5 @@
 {% else %}
 <p>No article</p>
 {% endif %}
+
+{% endblock %}

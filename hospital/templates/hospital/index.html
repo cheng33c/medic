@@ -1,11 +1,16 @@
-{% load static %}
+{% extends 'index.html' %}
+{% block title %}医院{% endblock %}
 
-{% if hospital_list %}
-<ul>
-    {% for hospital in hospital_list %}
-        <li><a href="{% url 'hospital:detail' hospital.id %}">{{ hospital.name }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No hospital</p>
-{% endif %}
+{% block content %}
+
+    {% if hospital_list %}
+        <ul>
+            {% for hospital in hospital_list %}
+                <li><a href="{% url 'hospital:detail' hospital.id %}">{{ hospital.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hospital</p>
+    {% endif %}
+
+{% endblock %}
