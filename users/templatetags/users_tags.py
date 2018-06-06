@@ -7,4 +7,4 @@ register = template.Library()
 
 @register.filter
 def is_doctor(userid):
-    return Doctors.objects.filter(user__id=userid)
+    return Doctors.objects.filter(user__id=userid).exists()

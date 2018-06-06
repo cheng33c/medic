@@ -50,9 +50,11 @@
         <div>
             <a href="{% url 'medical_record:index' %}">我的病历</a>
             {# 如果是医生则有添加病历选项 #}
-{#            {% if is_doctor|users.id is not None %}#}
-{#                <a href="{% url 'medical_record:add' %}">添加病历</a>#}
-{#            {% endif %}#}
+            {#  {{ user.id|is_doctor }} {# 模板使用自定义函数方法 #}
+            {% if user.id|is_doctor is True %}
+                <a href="{% url 'medical_record:add' %}">添加病历</a>
+            {% endif %}
+
         </div>
         <!-- 用户病历部分结束 -->
 
