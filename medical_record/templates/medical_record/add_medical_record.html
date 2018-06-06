@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        标题:<input type="text" name="title"><br>
+        医生:<input type="text" name="doctor"><br>
+        病人:<input type="text" name="patient"><br>
+        医院:<input type="text" name="hospital"><br>
+        创建日期:<input type="datetime-local" name="create_date"><br>
+        病历内容:<br><textarea rows="30" cols="50" name="desc"></textarea><br>
+        <input type="submit" value="提交">
+    </form>
+
+{% endblock %}
+
+{% block myjs %}
+{% endblock %}

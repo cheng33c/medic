@@ -1,3 +1,5 @@
+{% load users_tags %}
+
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -6,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Medic-{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://unpkg.com/mobi.css/dist/mobi.min.css">
+    {% block mycss %}{% endblock %}
 </head>
 <body>
 <div class="flex-center">
@@ -47,7 +50,9 @@
         <div>
             <a href="{% url 'medical_record:index' %}">我的病历</a>
             {# 如果是医生则有添加病历选项 #}
-            <a href="{% url '' %}">添加病历</a>
+{#            {% if is_doctor|users.id is not None %}#}
+{#                <a href="{% url 'medical_record:add' %}">添加病历</a>#}
+{#            {% endif %}#}
         </div>
         <!-- 用户病历部分结束 -->
 
@@ -57,6 +62,8 @@
         <!-- /.main -->
 
     </div>
+
+    {% block myjs %}{% endblock %}
 </div>
 </body>
 </html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}病历{% endblock %}
+
+{% block content %}
+    {% if medical_record_list %}
+        <ul>
+            {% for record in medical_record_list %}
+                <li><a href="{% url 'medical_record:detail' record.id %}">{{ record.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No article</p>
+    {% endif %}
+
+{% endblock %}

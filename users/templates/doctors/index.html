@@ -3,17 +3,15 @@
 
 {% block content %}
 
-    {% if doctors_list %}
-        <ul>
-            {% for doctor in doctors_list %}
-                <li>
-                    <a href="{% url 'users:doctors_detail' doctor.id %}">{{ doctor.user.username }}</a>
-                    {{ doctor.points }} {{ doctor.get_title_display }}
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No doctors</p>
-    {% endif %}
+    <ul>
+    {% for doctor in doctors_list %}
+        <li>
+            <a href="{% url 'users:doctors_detail' doctor.id %}">{{ doctor.user.username }}</a>
+            {{ doctor.points }} {{ doctor.get_title_display }}
+        </li>
+    {% empty %}
+        <li>No doctors</li>
+    {% endfor %}
+    </ul>
 
 {% endblock %}

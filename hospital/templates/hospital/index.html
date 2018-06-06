@@ -3,14 +3,12 @@
 
 {% block content %}
 
-    {% if hospital_list %}
-        <ul>
-            {% for hospital in hospital_list %}
-                <li><a href="{% url 'hospital:detail' hospital.id %}">{{ hospital.name }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No hospital</p>
-    {% endif %}
+    <ul>
+    {% for hospital in hospital_list %}
+        <li><a href="{% url 'hospital:detail' hospital.id %}">{{ hospital.name }}</a></li>
+    {% empty %}
+        <li>No hospital</li>
+    {% endfor %}
+    </ul>
 
 {% endblock %}

@@ -30,7 +30,6 @@ class Users(AbstractUser):
 class DoctorsManager(models.Manager):
 
     def query_by_hospital_name(self, hospital_name):
-
         pass
 
     def query_by_userid(self, userid):

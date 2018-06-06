@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block title %}{{ medicalrecord.title }}{% endblock %}
+
+{% block content %}
+
+    {% autoescape off %}
+
+        <h1>{{ medicalrecord.title }}</h1>
+
+        {% if error_message %}
+            <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+
+        {{ news.content }}
+
+    {% endautoescape %}
+
+{% endblock %}

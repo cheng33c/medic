@@ -3,14 +3,12 @@
 {% block title %}新闻{% endblock %}
 
 {% block content %}
-{% if latest_news_list %}
-<ul>
-    {% for news in latest_news_list %}
-        <li><a href="{% url 'news:detail' news.id %}">{{ news.title }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No article</p>
-{% endif %}
+    <ul>
+        {% for news in latest_news_list %}
+            <li><a href="{% url 'news:detail' news.id %}">{{ news.title }}</a></li>
+        {% empty %}
+            <li>No article</li>
+        {% endfor %}
+    </ul>
 
 {% endblock %}
