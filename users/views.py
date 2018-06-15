@@ -6,7 +6,6 @@ from .forms import RegisterForm
 from .models import Doctors
 
 
-
 # Create your views here.
 
 def index(request):

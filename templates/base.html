@@ -52,7 +52,7 @@
             {# 如果是医生则有添加病历选项 #}
             {#  {{ user.id|is_doctor }} {# 模板使用自定义函数方法 #}
             {% if user.id|is_doctor is True %}
-                <a href="{% url 'medical_record:add' %}">添加病历</a>
+                <a href="{% url 'medical_record:add1' %}">添加病历</a>
             {% endif %}
 
         </div>

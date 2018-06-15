@@ -19,9 +19,6 @@ class Users(AbstractUser):
     def __str__(self):
         return self.username
 
-    def is_doctor(self):
-        return Doctors.objects.filter(user__id=id)
-
     class Meta(AbstractUser.Meta):
         verbose_name = '用户信息'
         verbose_name_plural = verbose_name

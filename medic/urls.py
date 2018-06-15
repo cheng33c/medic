@@ -21,7 +21,7 @@ from users import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('medical_record/', include('medical_record.urls')),
+    path('medical-record/', include('medical_record.urls')),
     path('hospital/', include('hospital.urls')),
     path('news/', include('news.urls')),
     path('users/', include('users.urls')),

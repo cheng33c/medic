@@ -8,11 +8,15 @@
 
         <h1>{{ medicalrecord.title }}</h1>
 
+        医生: {{ medicalrecord.doctor }}<br>
+        病人: {{ medicalrecord.patient }}<br>
+        创建时间: {{ medicalrecord.create_date }}<br><br><br>
+
         {% if error_message %}
             <p><strong>{{ error_message }}</strong></p>
         {% endif %}
 
-        {{ news.content }}
+        病人病情:<br>{{ medicalrecord.desc }}
 
     {% endautoescape %}
 
